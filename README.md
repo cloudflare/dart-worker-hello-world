@@ -22,18 +22,18 @@ After installing Dart per the linked instructions above,
 cd projectname
 
 # run once to get dependencies
-pub get
+dart pub get
 
-dart2js -O2 --server-mode -o index.js index.dart
+dart compile js -O2 --server-mode -o index.js index.dart
 ```
 
 That will compile your code into index.js, after which you can run `wrangler publish` to push it to Cloudflare.
 
-For more information on how Dart translates to JavaScript, see the [docs for dart2js](https://dart.dev/tools/dart2js) and the [interop guide](https://dart.dev/web/js-interop).
+For more information on how Dart translates to JavaScript, see the [docs for dart compile js](https://dart.dev/tools/dart-compile#js) and the [interop guide](https://dart.dev/web/js-interop).
 
 #### Errors
 
-Dart `2.13.0` and above require the `dart2js --server-mode` flag when using native JavaScript classes. Server mode is used to compile JS to run on server side VMs such as nodejs. If this flag is not used, the following errors are displayed:
+Dart `2.13.0` and above require the `dart compile js --server-mode` flag when using native JavaScript classes. Server mode is used to compile JS to run on server side VMs such as nodejs. If this flag is not used, the following errors are displayed:
 
 ```
 index.dart:4:7:
